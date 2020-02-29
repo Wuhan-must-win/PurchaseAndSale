@@ -2,19 +2,23 @@ package org.zhang.purchasandsale.auth;
 
 import lombok.Data;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
+
 /**
- * 
- * @category 全局通用用户
- * @author G.fj
- * 
+ *
  */
 @Data
-public class User {
+@Entity
+@Table(name = "user")
+public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
-	/** 用户的唯一Id */
-	private String id;
-	/** 企业租户id */
-	private int euid;
-	/** 用户登录名称 */
-	private String userName;
+
+	@Id
+	private  String id;
+	private String userId;//用户id（主键）
+	private String userCode;// 用户账号
+	private String username;// 用户名称
 }
